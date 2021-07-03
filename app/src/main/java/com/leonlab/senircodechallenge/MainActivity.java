@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new Handler().postDelayed(() -> {
-            /*Intent intent = new Intent(MainActivity.this, );
+            Intent intent = new Intent(MainActivity.this, MainMenu.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);*/
+            startActivity(intent);
             finish();
         },TIME);
     }

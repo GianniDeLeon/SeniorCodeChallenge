@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/personajesFragment">
+
+    <fragment
+        android:id="@+id/acercaDeFragment"
+        android:name="com.leonlab.senircodechallenge.ui.acercade.AcercaDeFragment"
+        android:label="@string/menu_acerca_de"
+        tools:layout="@layout/fragment_acerca_de" />
+    <fragment
+        android:id="@+id/personajesFragment"
+        android:name="com.leonlab.senircodechallenge.ui.personajes.PersonajesFragment"
+        android:label="@string/menu_personajes"
+        tools:layout="@layout/fragment_personajes" />
+</navigation>
