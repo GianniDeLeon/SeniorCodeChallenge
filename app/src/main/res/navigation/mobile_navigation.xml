@@ -14,5 +14,18 @@
         android:id="@+id/personajesFragment"
         android:name="com.leonlab.senircodechallenge.ui.personajes.PersonajesFragment"
         android:label="@string/menu_personajes"
-        tools:layout="@layout/fragment_personajes" />
+        tools:layout="@layout/fragment_personajes" >
+        <action
+            android:id="@+id/action_personajesFragment_to_detallePersonajeFragment"
+            app:destination="@id/detallePersonajeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePersonajeFragment"
+        android:name="com.leonlab.senircodechallenge.ui.personajes.detalle.DetallePersonajeFragment"
+        android:label="fragment_detalle_personaje"
+        tools:layout="@layout/fragment_detalle_personaje" >
+        <argument
+            android:name="personaje"
+            android:defaultValue="null" />
+    </fragment>
 </navigation>
