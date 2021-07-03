@@ -75,8 +75,8 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.View
         int imageResource = (localDataSet.get(position).isFavorito())?R.drawable.ic_baseline_favorite:R.drawable.ic_baseline_favorite_border;
         viewHolder.imageViewFavorito.setImageResource(imageResource);
         viewHolder.imageViewFavorito.setOnClickListener(v -> {
-            localDataSet.get(position).setFavorito(!localDataSet.get(position).isFavorito());
-            int imageResource2 = (localDataSet.get(position).isFavorito())?R.drawable.ic_baseline_favorite_border:R.drawable.ic_baseline_favorite;
+            localDataSet.get(position).setFavorito();
+            int imageResource2 = (localDataSet.get(position).isFavorito())?R.drawable.ic_baseline_favorite:R.drawable.ic_baseline_favorite_border;
             viewHolder.imageViewFavorito.setImageResource(imageResource2);
         });
 

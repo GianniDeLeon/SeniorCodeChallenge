@@ -1,5 +1,9 @@
 package com.leonlab.senircodechallenge.model;
 
+import android.content.Context;
+
+import com.leonlab.senircodechallenge.sql.SqliteHelper;
+
 public class Personaje {
 
     private int char_id;
@@ -7,6 +11,7 @@ public class Personaje {
     private String[] occupation;
     private int[] appearance,better_call_saul_appearance;
     private boolean favorito;
+    private SqliteHelper sqliteHelper;
 
     public Personaje(int char_id, String name, String brythday, String img, String status, String nickname, String portrayed, String category, String[] occupation, int[] appearance, int[] better_call_saul_appearance) {
         this.char_id = char_id;
@@ -20,6 +25,11 @@ public class Personaje {
         this.occupation = occupation;
         this.appearance = appearance;
         this.better_call_saul_appearance = better_call_saul_appearance;
+    }
+
+    public void initFavorito(Context context){
+        this.sqliteHelper = new SqliteHelper(context);
+        this.setFavorito(sqliteHelper.getCharId(char_id));
     }
 
     public int getChar_id() {
@@ -114,7 +124,16 @@ public class Personaje {
         return favorito;
     }
 
-    public void setFavorito(boolean favorito) {
+    private void setFavorito(boolean favorito){
         this.favorito = favorito;
+    }
+
+    public void setFavorito() {
+        if (favorito){
+            sqliteHelper.removePersonaje(char_id);
+        }else {
+            sqliteHelper.addPersonaje(char_id,name);
+        }
+        this.favorito = !this.favorito;
     }
 }

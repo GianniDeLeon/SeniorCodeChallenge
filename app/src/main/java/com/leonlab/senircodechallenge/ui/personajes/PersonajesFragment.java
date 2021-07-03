@@ -50,11 +50,11 @@ public class PersonajesFragment extends Fragment {
 
 
     private void getPersonajes(){
-        clearArrayList();
         String url = "https://www.breakingbadapi.com/api/characters";
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (Response.Listener<org.json.JSONArray>) response -> {
+            clearArrayList();
             setArrayListPersonaje(response);
             if(arrayList.size() > 0){
                 personajeAdapter = new PersonajeAdapter(arrayList);
@@ -74,7 +74,7 @@ public class PersonajesFragment extends Fragment {
             Gson gson = new Gson();
             try {
                 Personaje personaje = gson.fromJson(response.get(i).toString(),Personaje.class);
-                personaje.setFavorito(true);
+                personaje.initFavorito(getContext());
                 arrayList.add(personaje);
                 swipeRefreshLayout.setRefreshing(false);
             } catch (JSONException e) {
