@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.leonlab.senircodechallenge.sql.SqliteHelper;
 
-public class Personaje {
+import java.io.Serializable;
+
+public class Personaje implements Serializable {
 
     private int char_id;
     private String name,brythday,img,status,nickname,portrayed,category;

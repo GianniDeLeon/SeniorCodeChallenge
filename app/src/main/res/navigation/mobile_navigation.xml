@@ -22,10 +22,13 @@
     <fragment
         android:id="@+id/detallePersonajeFragment"
         android:name="com.leonlab.senircodechallenge.ui.personajes.detalle.DetallePersonajeFragment"
-        android:label="fragment_detalle_personaje"
+        android:label="{title}"
         tools:layout="@layout/fragment_detalle_personaje" >
         <argument
-            android:name="personaje"
-            android:defaultValue="null" />
+            android:name="Personaje"
+            app:argType="com.leonlab.senircodechallenge.model.Personaje" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>

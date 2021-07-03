@@ -8,10 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.leonlab.senircodechallenge.R;
 import com.leonlab.senircodechallenge.model.Personaje;
+import com.leonlab.senircodechallenge.ui.personajes.PersonajesFragmentDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -31,6 +35,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.View
         private final TextView textViewApodo;
         private final ImageView imageViewFoto;
         private final ImageView imageViewFavorito;
+        private final ConstraintLayout constraintLayout;
 
         public ViewHolder(View view) {
             super(view);
@@ -40,6 +45,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.View
             textViewApodo = (TextView) view.findViewById(R.id.textViewApodo);
             imageViewFoto = (ImageView) view.findViewById(R.id.imageViewFoto);
             imageViewFavorito = (ImageView) view.findViewById(R.id.imageViewFavorito);
+            constraintLayout = (ConstraintLayout) view.findViewById(R.id.ConstraintLayoutContainer);
         }
     }
 
@@ -72,6 +78,11 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.View
         viewHolder.textViewNombre.setText(localDataSet.get(position).getName());
         viewHolder.textViewApodo.setText(localDataSet.get(position).getNickname());
         Picasso.get().load(localDataSet.get(position).getImg()).into(viewHolder.imageViewFoto);
+        viewHolder.textViewNombre.setOnClickListener(v -> goToDetalle(v,localDataSet.get(position)));
+        viewHolder.textViewApodo.setOnClickListener(v -> goToDetalle(v,localDataSet.get(position)));
+        viewHolder.imageViewFoto.setOnClickListener(v -> goToDetalle(v,localDataSet.get(position)));
+        viewHolder.constraintLayout.setOnClickListener(v -> goToDetalle(v,localDataSet.get(position)));
+
         int imageResource = (localDataSet.get(position).isFavorito())?R.drawable.ic_baseline_favorite:R.drawable.ic_baseline_favorite_border;
         viewHolder.imageViewFavorito.setImageResource(imageResource);
         viewHolder.imageViewFavorito.setOnClickListener(v -> {
@@ -86,5 +97,11 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.View
     @Override
     public int getItemCount() {
         return localDataSet.size();
+    }
+
+    private void goToDetalle(View view,Personaje personaje){
+        PersonajesFragmentDirections.ActionPersonajesFragmentToDetallePersonajeFragment action = PersonajesFragmentDirections.actionPersonajesFragmentToDetallePersonajeFragment(personaje,personaje.getName());
+
+        Navigation.findNavController(view).navigate(action);
     }
 }
