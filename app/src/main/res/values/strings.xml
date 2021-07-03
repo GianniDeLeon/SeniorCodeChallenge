@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SeniorCodeChallenge</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Menu -->
+    <string name="menu_personajes">Personajes</string>
+    <string name="menu_acerca_de">Acerca de</string>
+    <!-- Head Menu -->
+    <string name="email_gianni">gianni2103gt@gmail.com</string>
+    <string name="xumak">Xumak</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="occupation">Occupation:</string>
+    <string name="status">Status:</string>
+    <string name="portrayed">Portrayed:</string>
+    <string name="acerca_de">Desarrollador: Gianni De Leon\nCorreo:gianni2103gt@gmail.com</string>
+
+</resources>
